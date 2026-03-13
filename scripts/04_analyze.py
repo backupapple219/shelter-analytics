@@ -131,7 +131,6 @@ def print_summary(results: dict[str, pd.DataFrame]):
     print("SHELTER ANALYTICS — KEY FINDINGS SUMMARY")
     print("=" * 60)
 
-    # Outcome distribution
     if "outcome_distribution" in results:
         df = results["outcome_distribution"]
         print("\n📊 Outcome Distribution (all species):")
@@ -139,7 +138,6 @@ def print_summary(results: dict[str, pd.DataFrame]):
             print(f"   {row['animal_type']:<8} | {row['outcome_category']:<20} | "
                   f"{row['outcome_count']:>6,} ({row['pct_of_type']}%)")
 
-    # Live outcome rate trend
     if "live_outcome_rate_by_year" in results:
         df = results["live_outcome_rate_by_year"]
         print("\n📈 Live Outcome Rate by Year (Dogs):")
@@ -148,7 +146,6 @@ def print_summary(results: dict[str, pd.DataFrame]):
             bar = "█" * int(row["live_outcome_rate_pct"] / 5)
             print(f"   {int(row['year'])} | {bar:<20} {row['live_outcome_rate_pct']}%")
 
-    # Top 5 breeds
     if "top_breeds_by_volume" in results:
         df = results["top_breeds_by_volume"]
         print("\n🐶 Top 5 Dog Breeds by Intake Volume:")
@@ -156,14 +153,12 @@ def print_summary(results: dict[str, pd.DataFrame]):
         for i, (_, row) in enumerate(dogs.iterrows(), 1):
             print(f"   {i}. {row['primary_breed']}: {row['total_intakes']:,}")
 
-    # Breed adoption rates
     if "dog_breed_adoption_rate" in results:
         df = results["dog_breed_adoption_rate"]
         print("\n🏆 Top 5 Dog Breeds by Adoption Rate:")
         for i, (_, row) in enumerate(df.head(5).iterrows(), 1):
             print(f"   {i}. {row['primary_breed']}: {row['adoption_rate_pct']}% ({row['total']:,} total)")
 
-    # LOS
     if "los_by_intake_type" in results:
         df = results["los_by_intake_type"]
         print("\n⏱  Average Length of Stay by Intake Type:")
@@ -180,7 +175,6 @@ def main():
     results = run_queries(conn)
     conn.close()
 
-    # Export CSVs
     print("\nExporting CSVs to outputs/...")
     for name, df in results.items():
         path = os.path.join(OUTPUT_DIR, f"{name}.csv")
@@ -188,7 +182,7 @@ def main():
         print(f"  → {name}.csv")
 
     print_summary(results)
-    print("\n✅ Analysis complete. CSVs ready for Tableau / Power BI.")
+    print("\nAnalysis complete. CSVs ready for Tableau / Power BI.")
 
 
 if __name__ == "__main__":

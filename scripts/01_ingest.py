@@ -17,13 +17,13 @@ import time
 
 BASE_URL = "https://data.austintexas.gov/resource"
 ENDPOINTS = {
-    "intakes":  "wter-evkm.json",   # Austin Animal Center Intakes
-    "outcomes": "9t4d-g238.json",   # Austin Animal Center Outcomes
+    "intakes":  "wter-evkm.json",
+    "outcomes": "9t4d-g238.json",
 }
 
 RAW_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "raw")
-PAGE_SIZE = 5000   # Socrata max per request
-MAX_RECORDS = None  # Cap for dev; set to None for full pull
+PAGE_SIZE = 5000
+MAX_RECORDS = None
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -42,7 +42,7 @@ def fetch_all(endpoint_url: str, max_records: int | None = None) -> pd.DataFrame
         params = {
             "$limit":  PAGE_SIZE,
             "$offset": offset,
-            "$order":  ":id",       # stable ordering for consistent pagination
+            "$order":  ":id",
         }
 
         response = requests.get(endpoint_url, params=params, timeout=30)
@@ -57,12 +57,12 @@ def fetch_all(endpoint_url: str, max_records: int | None = None) -> pd.DataFrame
         print(f"    Fetched {offset:,} records so far...")
 
         if len(batch) < PAGE_SIZE:
-            break  # Last page
+            break
         if max_records and offset >= max_records:
             print(f"    Reached MAX_RECORDS cap ({max_records:,}). Stopping.")
             break
 
-        time.sleep(0.2)  # Be polite to the API
+        time.sleep(0.2)
 
     return pd.DataFrame(records)
 
@@ -81,7 +81,7 @@ def main():
         df.to_csv(out_path, index=False)
         print(f"  Saved {len(df):,} rows → {out_path}")
 
-    print("\n✅ Ingestion complete.")
+    print("\nIngestion complete.")
 
 
 if __name__ == "__main__":

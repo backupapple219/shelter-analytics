@@ -41,16 +41,13 @@ def load_fact_animal(conn: sqlite3.Connection, df: pd.DataFrame):
         "length_of_stay_days",
     ]
 
-    # Keep only columns that exist in df
     available = [c for c in fact_cols if c in df.columns]
     subset = df[available].copy()
 
-    # Convert booleans to int for SQLite
     for col in ["has_name", "is_mix", "is_live_outcome"]:
         if col in subset.columns:
             subset[col] = subset[col].astype(int)
 
-    # Convert date objects to strings
     for col in ["intake_date", "outcome_date"]:
         if col in subset.columns:
             subset[col] = subset[col].astype(str)
@@ -101,7 +98,6 @@ def main():
     load_agg_monthly_intake(conn, intakes)
     load_agg_outcome_summary(conn, merged)
 
-    # Verify row counts
     print("\nDatabase verification:")
     for table in ["fact_animal", "agg_monthly_intake", "agg_outcome_summary"]:
         cur = conn.execute(f"SELECT COUNT(*) FROM {table}")
@@ -109,7 +105,7 @@ def main():
         print(f"  {table}: {count:,} rows")
 
     conn.close()
-    print(f"\n✅ Database saved → {DB_PATH}")
+    print(f"\nDatabase saved → {DB_PATH}")
 
 
 if __name__ == "__main__":

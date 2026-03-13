@@ -78,7 +78,6 @@ def chart_outcome_distribution():
     pivot = df.pivot_table(index="animal_type", columns="outcome_category",
                            values="outcome_count", fill_value=0)
 
-    # Order columns by total
     pivot = pivot[pivot.sum().sort_values(ascending=False).index]
     colors = [PALETTE.get(c, "#AAA") for c in pivot.columns]
 
@@ -183,7 +182,7 @@ def main():
     chart_top_breeds()
     chart_breed_adoption_rates()
     chart_los_by_intake_type()
-    print("\n✅ All charts saved to outputs/")
+    print("\nAll charts saved to outputs/")
     print("   Connect outputs/*.csv to Tableau Public or Power BI for the interactive dashboard.")
 
 

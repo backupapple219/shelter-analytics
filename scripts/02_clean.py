@@ -187,7 +187,7 @@ def main():
     merged.to_csv(os.path.join(PROCESSED_DIR, "animals_merged.csv"), index=False)
     print(f"  Saved animals_merged.csv ({len(merged):,} rows)")
 
-    print("\n✅ Cleaning complete.")
+    print("\nCleaning complete.")
 
 
 if __name__ == "__main__":
