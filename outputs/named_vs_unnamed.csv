@@ -1,0 +1,13 @@
+has_name,outcome_category,count,avg_los_days
+0,Transfer,24270,3.1
+0,Adoption,13232,17.6
+0,Euthanasia,8349,1.3
+0,Died,1066,6.1
+0,Return to Owner,1044,3.2
+0,Other,813,5.7
+1,Adoption,60702,34.8
+1,Transfer,22743,15.5
+1,Return to Owner,18896,3.2
+1,Euthanasia,2320,16.6
+1,Died,557,21.4
+1,Other,186,25.8

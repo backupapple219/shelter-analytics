@@ -1,0 +1,19 @@
+intake_type,animal_type,animal_count,avg_los_days
+Abandoned,Cat,723,27.6
+Abandoned,Dog,973,27.5
+Owner Surrender,Dog,17696,27.0
+Owner Surrender,Cat,12456,25.3
+Public Assist,Cat,1336,25.3
+Stray,Cat,50926,21.7
+Public Assist,Bird,210,19.5
+Stray,Dog,53758,18.2
+Public Assist,Dog,6783,17.5
+Owner Surrender,Other,957,15.4
+Stray,Other,1211,15.0
+Euthanasia Request,Cat,57,11.9
+Owner Surrender,Bird,102,7.0
+Stray,Bird,400,6.3
+Public Assist,Other,349,4.7
+Wildlife,Bird,150,4.7
+Euthanasia Request,Dog,180,3.2
+Wildlife,Other,6263,1.5

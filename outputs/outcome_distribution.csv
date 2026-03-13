@@ -1,0 +1,30 @@
+animal_type,outcome_category,outcome_count,pct_of_type
+Bird,Adoption,322,37.2
+Bird,Transfer,253,29.2
+Bird,Euthanasia,154,17.8
+Bird,Return to Owner,57,6.6
+Bird,Other,46,5.3
+Bird,Died,33,3.8
+Cat,Adoption,33361,50.9
+Cat,Transfer,25800,39.4
+Cat,Return to Owner,2630,4.0
+Cat,Euthanasia,2525,3.9
+Cat,Died,982,1.5
+Cat,Other,218,0.3
+Dog,Adoption,39716,50.0
+Dog,Transfer,19850,25.0
+Dog,Return to Owner,17178,21.6
+Dog,Euthanasia,2172,2.7
+Dog,Died,386,0.5
+Dog,Other,142,0.2
+Livestock,Adoption,17,51.5
+Livestock,Transfer,7,21.2
+Livestock,Return to Owner,6,18.2
+Livestock,Euthanasia,2,6.1
+Livestock,Died,1,3.0
+Other,Euthanasia,5843,66.1
+Other,Transfer,1144,12.9
+Other,Adoption,968,10.9
+Other,Other,594,6.7
+Other,Died,225,2.5
+Other,Return to Owner,70,0.8
